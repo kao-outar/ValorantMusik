@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sage Vinyl Experience - Projet Valorant interactif avec Canvas">
+    <meta name="author" content="Votre Nom - IIM Développement Créatif">
+    <title>Sage Vinyl Experience - Valorant</title>
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="css/destyle.css">
+    <!-- Styles personnalisés -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Canvas de fond pour les particules -->
+    <canvas class="bg-particles" id="bgParticles"></canvas>
+
+    <div class="container">
+        <!-- Section gauche : présentation de Sage -->
+        <section class="sage-section" aria-label="Informations sur l'agent Sage">
+            <div class="sage-image" aria-hidden="true"></div>
+
+            <div class="sage-content">
+                <header class="sage-header">
+                    <h1 class="sage-title">SAGE</h1>
+                    <div class="sage-subtitle">guardian</div>
+
+                    <div class="sage-role">
+                        <div class="role-icon" aria-hidden="true"></div>
+                        <span class="role-text">Sentinel</span>
+                    </div>
+                </header>
+
+                <section class="sage-description">
+                    <h2 class="description-title">DEFY THE LIMITS</h2>
+                    <p class="description-text">
+                        Longtemps connue comme une guérisseuse hors pair sur le champ de bataille, Sage a toujours mis sa vie au service des autres. Mais un jour, tout a basculé.<br><br>
+                        Touchée par une maladie rare après une mission, elle est contrainte de s’éloigner du combat. Pendant sa convalescence, Sage découvre un autre pouvoir : la musique.<br><br>
+                        Elle commence à chanter pour apaiser ses douleurs… puis celles des autres. Sa voix touche les cœurs, et ses reprises deviennent virales. Aujourd’hui, elle soigne toujours — non plus avec ses orbes, mais avec ses chansons.
+                    </p>
+                </section>
+
+                <section class="abilities">
+                    <ul class="abilities-list">
+                        <li class="ability-item"><span>HEALING ORB</span></li>
+                        <li class="ability-item"><span>SLOW ORB</span></li>
+                        <li class="ability-item"><span>BARRIER ORB</span></li>
+                        <li class="ability-item"><span>RESURRECTION</span></li>
+                    </ul>
+                </section>
+
+                <blockquote class="sage-quote">
+                    you will not<br>
+                    kill my allies
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Section droite : vinyle interactif -->
+        <section class="vinyl-section" aria-label="Expérience vinyle interactive">
+            <div class="vinyl-container">
+                <canvas 
+                    id="vinylCanvas" 
+                    width="450" 
+                    height="450"
+                    aria-label="Vinyle interactif Sage - Cliquez pour jouer"
+                    role="button"
+                    tabindex="0">
+                    Votre navigateur ne supporte pas Canvas.
+                </canvas>
+
+                <div class="controls">
+                    <p class="play-instruction">Click to play</p>
+                    <div class="play-status" id="playStatus" aria-live="polite"></div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>

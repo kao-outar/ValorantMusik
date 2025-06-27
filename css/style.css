@@ -1,0 +1,466 @@
+:root {
+    /* Couleurs Sage Valorant (palette officielle) */
+    --sage-white: #e8e1ee;
+    --sage-cyan: #3be0c3;
+    --sage-dark-cyan: #16b199;
+    --sage-gray-blue: #38646b;
+    --sage-black: #151211;
+    
+    /* Typographie */
+    --font-primary: 'Rajdhani', sans-serif;
+    --font-title: 'Orbitron', monospace;
+    
+    /* Espacements */
+    --spacing-sm: 15px;
+    --spacing-md: 30px;
+    --spacing-lg: 60px;
+    
+    /* Transitions */
+    --transition-fast: 0.3s ease;
+    --transition-slow: 0.6s ease;
+  }
+  
+  /* ===== BASE STYLES ===== */
+  body {
+    font-family: var(--font-primary);
+    background: var(--sage-black);
+    color: var(--sage-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+  
+  /* ===== LAYOUT PRINCIPAL ===== */
+  .container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Particules d'arrière-plan */
+  .bg-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* ===== SECTION SAGE (GAUCHE) ===== */
+  .sage-section {
+    flex: 1;
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--sage-black) 0%, var(--sage-gray-blue) 100%);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-y: auto;
+    max-height: 100vh;
+  }
+  
+  /* Image décorative de Sage */
+  .sage-image {
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 600px;
+    background: url('../assets/images/sage-portrait.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.8;
+    z-index: 1;
+    filter: drop-shadow(0 0 30px rgba(59, 224, 195, 0.3));
+  }
+  
+  /* Fallback si pas d'image */
+  .sage-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--sage-cyan) 0%, var(--sage-dark-cyan) 100%);
+    opacity: 0.2;
+    border-radius: 10px;
+  }
+  
+  .sage-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Header Sage */
+  .sage-header {
+    margin-bottom: 40px;
+  }
+  
+  .sage-title {
+    font-family: var(--font-title);
+    font-size: clamp(4rem, 8vw, 8rem);
+    font-weight: 900;
+    color: var(--sage-white);
+    line-height: 0.8;
+    letter-spacing: -0.05em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(59, 224, 195, 0.5);
+  }
+  
+  .sage-subtitle {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 300;
+    color: var(--sage-cyan);
+    font-style: italic;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+  }
+  
+  /* Rôle de l'agent */
+  .sage-role {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: 40px;
+  }
+  
+  .role-icon {
+    width: 25px;
+    height: 25px;
+    background: var(--sage-cyan);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    filter: drop-shadow(0 0 10px var(--sage-cyan));
+  }
+  
+  .role-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--sage-white);
+  }
+  
+  /* Description */
+  .sage-description {
+    max-width: 400px;
+    margin-bottom: 50px;
+  }
+  
+  .description-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sage-white);
+    margin-bottom: 15px;
+  }
+  
+  .description-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--sage-dark-cyan);
+    font-weight: 400;
+  }
+  
+  /* Capacités */
+  .abilities-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--sage-white);
+    margin-bottom: 20px;
+  }
+  
+  .abilities-list {
+    list-style: none;
+  }
+  
+  .ability-item {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--sage-white);
+    font-weight: 600;
+    transition: var(--transition-fast);
+  }
+  
+  .ability-item:hover {
+    color: var(--sage-cyan);
+    transform: translateX(5px);
+  }
+  
+  .ability-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Blanc par défaut */
+    transition: var(--transition-fast);
+  }
+  
+  .ability-item:hover .ability-icon {
+    filter: none; /* Couleur originale au hover */
+  }
+  
+  /* Fallback si pas d'images */
+  .ability-bullet {
+    width: 8px;
+    height: 8px;
+    background: var(--sage-cyan);
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px var(--sage-cyan);
+  }
+  
+  /* Citation de Sage */
+  .sage-quote {
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--sage-cyan);
+    margin-top: 50px;
+    line-height: 1.3;
+    text-shadow: 0 0 20px rgba(59, 224, 195, 0.3);
+  }
+  
+  .typography-note {
+    margin-top: 40px;
+  }
+  
+  /* ===== SECTION VINYLE (DROITE) ===== */
+  .vinyl-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    position: relative;
+    z-index: 2;
+    background: radial-gradient(circle at center, var(--sage-gray-blue) 0%, var(--sage-black) 100%);
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+  }
+  
+  .vinyl-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  /* Canvas du vinyle */
+  #vinylCanvas {
+    cursor: pointer;
+    transition: var(--transition-fast);
+    filter: drop-shadow(0 0 40px rgba(59, 224, 195, 0.3));
+    border-radius: 50%;
+  }
+  
+  #vinylCanvas:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 60px rgba(59, 224, 195, 0.5));
+  }
+  
+  #vinylCanvas:focus {
+    outline: 2px solid var(--sage-cyan);
+    outline-offset: 4px;
+  }
+  
+  /* Contrôles */
+  .controls {
+    text-align: center;
+  }
+  
+  .play-instruction {
+    font-family: var(--font-title);
+    font-size: 1.4rem;
+    color: var(--sage-white);
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  .play-status {
+    font-size: 1.1rem;
+    color: var(--sage-cyan);
+    font-weight: 600;
+    text-align: center;
+    min-height: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+  
+  /* ===== RESPONSIVE DESIGN ===== */
+  @media (max-width: 1200px) {
+    .sage-title {
+      font-size: 6rem;
+    }
+    
+    .sage-image {
+      width: 300px;
+      height: 450px;
+    }
+    
+    #vinylCanvas {
+      width: 400px;
+      height: 400px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      height: auto;
+      min-height: 100vh;
+    }
+    .sage-section, 
+    .vinyl-section {
+      padding: 40px 30px;
+      max-height: none;
+      min-height: auto;
+      overflow: visible;
+    }
+    .sage-section {
+      overflow-y: visible;
+      scrollbar-width: auto;
+    }
+    .vinyl-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      max-height: none;
+      overflow: visible;
+    }
+    .sage-title {
+      font-size: 4rem;
+    }
+    .sage-subtitle {
+      font-size: 1.8rem;
+    }
+    .sage-image {
+      display: none;
+    }
+    #vinylCanvas {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sage-section, 
+    .vinyl-section {
+      padding: 20px;
+      max-height: none;
+      min-height: auto;
+      overflow: visible;
+    }
+    .sage-section {
+      overflow-y: visible;
+      scrollbar-width: auto;
+    }
+    .vinyl-section {
+      min-height: 50vh;
+      max-height: none;
+      overflow: visible;
+    }
+    .sage-title {
+      font-size: 3rem;
+    }
+    .play-instruction {
+      font-size: 1.2rem;
+    }
+    #vinylCanvas {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  
+  /* ===== ANIMATIONS ===== */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 10px var(--sage-cyan); }
+    50% { box-shadow: 0 0 20px var(--sage-cyan), 0 0 30px var(--sage-cyan); }
+  }
+  
+  .ability-bullet {
+    animation: glow 2s ease-in-out infinite;
+  }
+  
+  /* ===== ACCESSIBILITÉ ===== */
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* Focus states pour accessibilité */
+  button:focus,
+  canvas:focus {
+    outline: 2px solid var(--sage-cyan);
+    outline-offset: 2px;
+  }
+  
+  /* ===== ÉTATS DE CHARGEMENT ===== */
+  .loading {
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  
+  .loaded {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity var(--transition-slow);
+  }
+
+  .sage-section::-webkit-scrollbar {
+    width: 10px;
+    background: var(--sage-black);
+    border-radius: 8px;
+  }
+  .sage-section::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--sage-cyan) 40%, var(--sage-dark-cyan) 100%);
+    border-radius: 8px;
+    box-shadow: 0 0 8px var(--sage-cyan);
+  }
+  .sage-section::-webkit-scrollbar-thumb:hover {
+    background: var(--sage-cyan);
+  }
+  .sage-section::-webkit-scrollbar-track {
+    background: var(--sage-gray-blue);
+    border-radius: 8px;
+  }
+
+  /* Pour Firefox */
+  .sage-section {
+    scrollbar-width: thin;
+    scrollbar-color: var(--sage-cyan) var(--sage-gray-blue);
+  }
